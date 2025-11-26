@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris
+//go:build aix || darwin || dragonfly || freebsd || haiku || linux || netbsd || openbsd || solaris
 
 package unix_test
 
@@ -651,6 +651,8 @@ func TestGetwd(t *testing.T) {
 	switch runtime.GOOS {
 	case "android":
 		dirs = []string{"/", "/system/bin"}
+	case "haiku":
+		dirs = []string{"/", "/boot/system/bin"}
 	case "ios":
 		dirs = []string{t.TempDir(), t.TempDir()}
 	}
